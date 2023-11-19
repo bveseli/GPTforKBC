@@ -74,7 +74,7 @@ Structured knowledge bases (KBs) are an asset for search engines and other appli
 	   Motivation and Problem
 	   	</h4>
        <figure style="text-align:center">
-       <img  src="./GPTforKBC_files/motivation_problem.pdf" width="60%" class="img-responsive">
+       <img  src="./GPTforKBC_files/motivation_problem.png" width="60%" class="img-responsive">
        <figcaption style="text-align:left" >Knowledge Bases (KBs) are essential for search engines and other applications, but inevitably incomplete. Language Models (LMs) have recently been proposed for KB completion because of their implicit access to a large amount of implict knowledge. In KBs, the emphasis is placed on completeness and correctness, but: <b>are LMs able to complete KBs at scale and with near-human precision (>90%)?</b> .
 	   </figcaption>
        </figure>
@@ -89,7 +89,7 @@ Structured knowledge bases (KBs) are an asset for search engines and other appli
 	   Method
 	   	</h4>
        <figure style="text-align:center">
-       <img  src="./GPTforKBC_files/method.pdf" width="60%" class="img-responsive">
+       <img  src="./GPTforKBC_files/method.png" width="60%" class="img-responsive">
        <figcaption style="text-align:left" >To query the GPT models, we utilize instruction-free prompts listed in the appendix. Specifically for GPT-3, we follow the prompt setup of (Cohen et al., 2023), which is based on an instruction-free prompt entirely consisting of 8 randomly sampled and manually checked examples. </b> .
 	   </figcaption>
        </figure>
@@ -103,7 +103,7 @@ Structured knowledge bases (KBs) are an asset for search engines and other appli
 	   Dataset
 	   	</h4>
        <figure style="text-align:center">
-       <img  src="./GPTforKBC_files/table.pdf" width="60%" class="img-responsive">
+       <img  src="./GPTforKBC_files/table.png" width="60%" class="img-responsive">
        <figcaption style="text-align:left" ><b>WD-KNOWN</b> is a benchmark for fact extraction (SP->O). It focuses on long-tail knowledge, e.g. entities without Wikipedia-Pages.</b> .
 	   </figcaption>
        </figure>
@@ -117,13 +117,13 @@ Structured knowledge bases (KBs) are an asset for search engines and other appli
 	   Automated Evaluation
 	   	</h4>
        <figure style="text-align:center">
-       <img  src="./GPTforKBC_files/EMNLP_Tabelle_1_automated_eval.pdf" width="60%" class="img-responsive">
+       <img  src="./GPTforKBC_files/EMNLP_Tabelle_1_automated_eval.png" width="60%" class="img-responsive">
        <figcaption style="text-align:left" >This table shows the results on our <i>retain-all</i>-setting, where we computed precision, recall and F1 on all samples per relation. It can be shown that none of the GPT models achieves precision of over 90%, except GPT-3 on relation writtenIn. We therefore, in a second step, sort predictions by confidence and evaluate by recall at precision 95% and 90% (R@P95 and R@P90). To do so, we sort the pre- dictions for all subjects in a relation by the model’s probability on the first generated token, then com- pute the precision at each point of this list, and return the maximal fraction of the list covered while maintaining precision greater than the desired value. We threshold only GPT-3, because only GPT-3’s token probabilities are directly ac- cessable in the API, and because the chat-aligned models do not outperform it in the retain-all setting.
 	   </figcaption>
        </figure>
 	   
        <figure style="text-align:center">
-       <img  src="./GPTforKBC_files/EMNLP_Tabelle_3_automated_eval_precision_thresholding.pdf" width="60%" class="img-responsive">
+       <img  src="./GPTforKBC_files/EMNLP_Tabelle_3_automated_eval_precision_thresholding.png" width="60%" class="img-responsive">
        <figcaption style="text-align:left" >This second table shows our main results when evaluating by recall at precision 95% and 90% on the 22 best-performing relations. We find that on many relations, GPT-3 can reproduce existing statements at over 95% precision, and there are significant gains over the smaller BERT-large model. At the same time, it should be noted that (Sun et al., 2023) observed that for large enough models, parameter scaling does not improve performance further, so it is well possible that these scores represent a ceiling w.r.t. model size.
 	   </figcaption>
        </figure>
@@ -142,7 +142,7 @@ Structured knowledge bases (KBs) are an asset for search engines and other appli
 	   Knowledge Base Completion
 	   	</h4>
        <figure style="text-align:center">
-       <img  src="./GPTforKBC_files/EMNLP_Tabelle_2_manual_eval.pdf" width="60%" class="img-responsive">
+       <img  src="./GPTforKBC_files/EMNLP_Tabelle_2_manual_eval.png" width="60%" class="img-responsive">
        <figcaption style="text-align:left" > To perform KB completion GPT has to generate <i>novel</i> facts, that are not in the KB, i.e. Wikidata, yet. To evaluate this setting, we conducted a manual assessment of 800 out-of-kb facts for the 16 best-performing relations. This table shows our main results when using precision-oriented thresholding. The fourth column shows the percentage of subjects for which we obtained high-confidence predictions, the fifth how these translates into absolute statement numbers, and the sixth shows the percentages that were manually verified as correct (sampled). In the last column, we show how this number relates to the current size of the relation. We find that manual precision surpasses 90% for 5 relations, and 80% for 11. Notably, the best- performing relations are mostly related to socio- demographic properties (languages, citizenship). In absolute terms, we find a massive number of high-accuracy statements that could be added to the writtenIn relation (18M), followed by spo- kenLanguage and nativeLanguage (4M each). In relative terms, the additions could increase the existing relations by up to 1200%, though there is a surprising divergence (4 relations over 100%, 11 relations below 20%).
 	   </figcaption>
        </figure>
